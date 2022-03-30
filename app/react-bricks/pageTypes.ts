@@ -1,4 +1,4 @@
-import { types } from 'react-bricks/frontend'
+import { types } from 'react-bricks/frontend';
 
 const pageTypes: types.IPageType[] = [
   {
@@ -18,6 +18,6 @@ const pageTypes: types.IPageType[] = [
       'tweet-light',
     ],
   },
-]
+];
 
-export default pageTypes
+export default pageTypes;

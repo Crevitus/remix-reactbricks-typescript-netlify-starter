@@ -1,10 +1,11 @@
-import { Link } from 'remix'
+import { Link } from 'remix';
+import React from 'react';
 
 const Header: React.FC = () => (
-  <header className="bg-white sm:h-20 py-5 border-b sm:sticky top-0 z-10">
-    <div className="max-w-5xl mx-auto px-6">
-      <div className="w-full flex flex-col sm:flex-row justify-center sm:justify-between items-center">
-        <div className="flex flex-col sm:flex-row items-center mb-4 sm:mb-0">
+  <header className="top-0 z-10 border-b bg-white py-5 sm:sticky sm:h-20">
+    <div className="mx-auto max-w-5xl px-6">
+      <div className="flex w-full flex-col items-center justify-center sm:flex-row sm:justify-between">
+        <div className="mb-4 flex flex-col items-center sm:mb-0 sm:flex-row">
           <a href="/">
             <img
               src="/react-bricks-logo.svg"
@@ -12,7 +13,7 @@ const Header: React.FC = () => (
               alt="React Bricks"
             />
           </a>
-          <div className="sm:ml-8 flex space-x-5 text-center">
+          <div className="flex space-x-5 text-center sm:ml-8">
             <Link to="/" className="text-gray-500 hover:text-pink-700">
               Home
             </Link>
@@ -23,13 +24,13 @@ const Header: React.FC = () => (
         </div>
         <Link
           to="/admin"
-          className="py-2 px-5 rounded text-white font-medium bg-cyan-500 hover:bg-cyan-600 hover:shadow-lg transition duration-200"
+          className="rounded bg-cyan-500 py-2 px-5 font-medium text-white transition duration-200 hover:bg-cyan-600 hover:shadow-lg"
         >
           Edit content
         </Link>
       </div>
     </div>
   </header>
-)
+);
 
-export default Header
+export default Header;

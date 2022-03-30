@@ -1,15 +1,15 @@
-import React from 'react'
-import { Text, RichText, Image, types } from 'react-bricks/frontend'
+import React from 'react';
+import { Text, RichText, Image, types } from 'react-bricks/frontend';
 
 //=============================
 // Local Types
 //=============================
-type Padding = 'big' | 'small'
+type Padding = 'big' | 'small';
 
 interface HeroUnitProps {
-  padding: Padding
-  title: string
-  text: string
+  padding: Padding;
+  title: string;
+  text: string;
 }
 
 //=============================
@@ -18,7 +18,7 @@ interface HeroUnitProps {
 const HeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
   return (
     <div
-      className={`max-w-xl mx-auto px-6 ${
+      className={`mx-auto max-w-xl px-6 ${
         padding === 'big' ? 'py-20' : 'py-12'
       }`}
     >
@@ -32,7 +32,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
         />
         <Text
           renderBlock={(props) => (
-            <h1 className="text-3xl sm:text-4xl text-center font-black text-gray-900 dark:text-white leading-tight mb-3">
+            <h1 className="mb-3 text-center text-3xl font-black leading-tight text-gray-900 dark:text-white sm:text-4xl">
               {props.children}
             </h1>
           )}
@@ -44,7 +44,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
         />
         <RichText
           renderBlock={(props) => (
-            <p className="text-xl text-center leading-relaxed text-gray-700 dark:text-gray-100">
+            <p className="text-center text-xl leading-relaxed text-gray-700 dark:text-gray-100">
               {props.children}
             </p>
           )}
@@ -58,15 +58,15 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
             types.RichTextFeatures.Link,
           ]}
           renderCode={(props) => (
-            <code className="text-sm py-1 px-2 bg-gray-200 dark:bg-gray-700 rounded">
+            <code className="rounded bg-gray-200 py-1 px-2 text-sm dark:bg-gray-700">
               {props.children}
             </code>
           )}
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 //=============================
 // Brick Schema
@@ -94,6 +94,6 @@ HeroUnit.schema = {
       },
     },
   ],
-}
+};
 
-export default HeroUnit
+export default HeroUnit;

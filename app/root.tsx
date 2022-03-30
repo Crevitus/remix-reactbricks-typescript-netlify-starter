@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 import {
   Links,
@@ -9,46 +9,46 @@ import {
   ScrollRestoration,
   useNavigate,
   useLoaderData,
-} from 'remix'
-import type { MetaFunction } from 'remix'
-import { ReactBricks } from 'react-bricks/frontend'
-import config from './react-bricks/config'
+} from 'remix';
+import type { MetaFunction } from 'remix';
+import { ReactBricks } from 'react-bricks/frontend';
+import config from './react-bricks/config';
 
-import styles from './tailwind.css'
-import ErrorMessage from './components/ErrorMessage'
+import styles from './styles/tailwind.css';
+import ErrorMessage from './components/ErrorMessage';
 
 export function links() {
-  return [{ rel: 'stylesheet', href: styles }]
+  return [{ rel: 'stylesheet', href: styles }];
 }
 
 export const meta: MetaFunction = () => {
-  return { title: 'Remix Blog Starter with React Bricks' }
-}
+  return { title: 'Remix Blog Starter with React Bricks' };
+};
 
 export const loader = () => {
-  const apiKey = process.env.API_KEY
-  const appId = process.env.APP_ID
+  const apiKey = process.env.API_KEY;
+  const appId = process.env.APP_ID;
 
   if (!apiKey || !appId) {
-    throw new Error('Missing React Bricks credentials in .env file')
+    throw new Error('Missing React Bricks credentials in .env file');
   }
 
-  return { appId, apiKey }
-}
+  return { appId, apiKey };
+};
 
 export default function App() {
-  const navigate = useNavigate()
-  const { appId, apiKey } = useLoaderData()
+  const navigate = useNavigate();
+  const { appId, apiKey } = useLoaderData();
 
   const savedColorMode =
-    typeof window === 'undefined' ? '' : localStorage.getItem('color-mode')
-  const [colorMode, setColorMode] = useState(savedColorMode || 'light')
+    typeof window === 'undefined' ? '' : localStorage.getItem('color-mode');
+  const [colorMode, setColorMode] = useState(savedColorMode || 'light');
 
   const toggleColorMode = () => {
-    const newColorMode = colorMode === 'light' ? 'dark' : 'light'
-    setColorMode(newColorMode)
-    localStorage.setItem('color-mode', newColorMode)
-  }
+    const newColorMode = colorMode === 'light' ? 'dark' : 'light';
+    setColorMode(newColorMode);
+    localStorage.setItem('color-mode', newColorMode);
+  };
 
   const reactBricksConfig = {
     ...config,
@@ -60,7 +60,7 @@ export default function App() {
     contentClassName: `antialiased font-content ${colorMode} ${
       colorMode === 'dark' ? 'bg-gray-900' : 'bg-white'
     }`,
-  }
+  };
 
   return (
     <html lang="en">
@@ -79,10 +79,10 @@ export default function App() {
         {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>
-  )
+  );
 }
 export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error)
+  console.error(error);
   return (
     <html>
       <head>
@@ -95,5 +95,5 @@ export function ErrorBoundary({ error }: { error: Error }) {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }

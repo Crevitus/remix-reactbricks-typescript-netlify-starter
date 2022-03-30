@@ -1,8 +1,8 @@
-import { types } from 'react-bricks/frontend'
+import { types } from 'react-bricks/frontend';
 
-import bricks from './bricks'
-import pageTypes from './pageTypes'
-import RemixLink from './RemixLink'
+import bricks from './bricks';
+import pageTypes from './pageTypes';
+import RemixLink from './RemixLink';
 
 const config: types.ReactBricksConfig = {
   appId: '', //process.env.APP_ID as string || '',
@@ -28,6 +28,6 @@ const config: types.ReactBricksConfig = {
   enableAutoSave: true,
   disableSaveIfInvalidProps: false,
   enablePreview: true,
-}
+};
 
-export default config
+export default config;
